@@ -1,7 +1,14 @@
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { CalendarPlus, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import styles from "./Hero.module.scss";
+
+const ECOSYSTEM_LOGOS = [
+  { src: "/logos/satu-sehat.png", alt: "SATU SEHAT" },
+  { src: "/logos/pcare-bpjs.png", alt: "PCare BPJS" },
+  { src: "/logos/mobile-jkn.png", alt: "Mobile JKN" },
+];
 
 export default function Hero() {
   return (
@@ -21,9 +28,21 @@ export default function Hero() {
             Medicalsia mengurus pendaftaran, antrian, konsultasi, farmasi, sampai kasir dalam satu aplikasi — dan
             mengirim WhatsApp ke pasien Anda secara otomatis, dari nomor klinik sendiri.
           </p>
+          <div className={styles.ecosystem}>
+            <span className={styles.ecosystemLabel}>Dirancang mengacu ke ekosistem SATU SEHAT &amp; BPJS</span>
+            <div className={styles.ecosystemLogos}>
+              {ECOSYSTEM_LOGOS.map((logo) => (
+                <Image key={logo.alt} src={logo.src} alt={logo.alt} width={54} height={54} />
+              ))}
+            </div>
+          </div>
           <div className={styles.heroCtas}>
-            <LinkButton href="/kontak">Request Demo</LinkButton>
+            <LinkButton href="/kontak">
+              <CalendarPlus size={18} />
+              Request Demo
+            </LinkButton>
             <LinkButton href="/fitur" variant="ghost">
+              <Sparkles size={18} />
               Lihat Fitur
             </LinkButton>
           </div>

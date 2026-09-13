@@ -13,8 +13,8 @@
   background: v.$color-surface;
   padding: 2rem 2.2rem;
   display: flex;
-  gap: 1.4rem;
-  align-items: flex-start;
+  gap: 1.6rem;
+  align-items: center;
 
   p {
     margin: 0;
@@ -24,13 +24,16 @@
   }
 }
 
-.bar {
-  width: 0.3rem;
-  align-self: stretch;
-  background: v.$color-danger;
-  border-radius: 0.3rem;
-  opacity: 0.55;
+.iconWrap {
+  width: 4.4rem;
+  height: 4.4rem;
   flex-shrink: 0;
+  border-radius: v.$radius-md;
+  background: v.$color-danger-bg;
+  color: v.$color-danger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .punch {

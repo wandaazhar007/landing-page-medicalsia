@@ -5,9 +5,10 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 248, 252, 0.86);
+  // Matches the color at the very top of the hero/page gradient (see
+  // src/styles/_globals.scss) so the navbar blends into it instead of showing a seam.
+  background: rgba(234, 241, 255, 0.86);
   backdrop-filter: blur(1rem);
-  border-bottom: 0.1rem solid v.$color-border;
 }
 
 .nav {
@@ -100,23 +101,106 @@
   }
 }
 
-.mobilePanel {
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(14, 27, 61, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+
+  @include r.nav-collapse {
+    &.backdropOpen {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+// Slides in from the left as a full-height sidebar (not a top dropdown panel).
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 70;
+  width: 29rem;
+  max-width: 84vw;
+  display: flex;
+  flex-direction: column;
+  background: v.$color-surface;
+  box-shadow: 0.6rem 0 3rem -1rem rgba(14, 27, 61, 0.35);
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+
+  @include r.nav-collapse {
+    &.sidebarOpen {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebarHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem 1.6rem;
+  border-bottom: 0.1rem solid v.$color-border;
+}
+
+.closeBtn {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1rem;
+  border: 0.15rem solid v.$color-border;
+  background: v.$color-surface;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: v.$color-ink;
+}
+
+.sidebarNav {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  padding: 1rem 2rem 2.2rem;
-  border-bottom: 0.1rem solid v.$color-border;
-  background: v.$color-surface;
+  padding: 1.4rem 1.6rem;
+  overflow-y: auto;
 
   a {
-    padding: 1.2rem 0.4rem;
-    border-bottom: 0.1rem solid v.$color-border;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.3rem 1.2rem;
+    border-radius: v.$radius-md;
     font-weight: v.$font-weight-semibold;
     color: v.$color-ink;
     font-size: 1.5rem;
 
-    &:last-of-type {
-      border-bottom: none;
+    svg {
+      flex-shrink: 0;
+      color: v.$color-primary;
+    }
+
+    &:hover {
+      background: #eef2fc;
     }
   }
+}
+
+.sidebarActive {
+  background: #e9effc !important;
+  color: v.$color-primary !important;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 1.6rem 2rem 2.2rem;
+  border-top: 0.1rem solid v.$color-border;
+}
+
+.sidebarCta {
+  color: #fff;
 }

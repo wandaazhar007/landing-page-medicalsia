@@ -1,12 +1,13 @@
+import { ListX, PhoneCall, TimerReset, Wrench } from "lucide-react";
 import Section from "@/components/ui/Section";
 import SectionHead from "@/components/ui/SectionHead";
 import styles from "./ProblemSection.module.scss";
 
 const PAIN_POINTS = [
-  "Resepsionis masih telepon satu-satu buat ingetin jadwal besok.",
-  "Sistemnya lemot pas jam ramai, pasien jadi ikut ngantre di depan komputer.",
-  "Butuh bantuan teknis, tapi nomor CS-nya nggak pernah kejawab.",
-  "Antrian masih ditulis di kertas — gampang tercecer, gampang salah panggil.",
+  { icon: PhoneCall, text: "Resepsionis masih telepon satu-satu buat ingetin jadwal besok." },
+  { icon: TimerReset, text: "Sistemnya lemot pas jam ramai, pasien jadi ikut ngantre di depan komputer." },
+  { icon: Wrench, text: "Butuh bantuan teknis, tapi nomor CS-nya nggak pernah kejawab." },
+  { icon: ListX, text: "Antrian masih ditulis di kertas — gampang tercecer, gampang salah panggil." },
 ];
 
 export default function ProblemSection() {
@@ -17,10 +18,12 @@ export default function ProblemSection() {
         Anda.
       </SectionHead>
       <div className={styles.painList}>
-        {PAIN_POINTS.map((point) => (
-          <div key={point} className={styles.painItem}>
-            <div className={styles.bar} />
-            <p>{point}</p>
+        {PAIN_POINTS.map(({ icon: Icon, text }) => (
+          <div key={text} className={styles.painItem}>
+            <div className={styles.iconWrap}>
+              <Icon size={20} />
+            </div>
+            <p>{text}</p>
           </div>
         ))}
       </div>

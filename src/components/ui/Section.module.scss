@@ -10,7 +10,14 @@
 }
 
 .bordered {
-  background: v.$color-surface;
-  border-top: 0.1rem solid v.$color-border;
-  border-bottom: 0.1rem solid v.$color-border;
+  // A light veil (not opaque) so the page's underlying color gradient still shows
+  // through, and it fades to transparent at the top/bottom edges so it blends into
+  // that gradient instead of showing a hard seam or border line.
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 12%,
+    rgba(255, 255, 255, 0.6) 88%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
