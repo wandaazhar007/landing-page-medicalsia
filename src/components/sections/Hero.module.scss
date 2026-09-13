@@ -1,0 +1,205 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.hero {
+  padding: 5.6rem 0 3.6rem;
+
+  @include r.nav-collapse {
+    padding: 3rem 0 1.2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 5.6rem;
+  align-items: center;
+
+  @include r.nav-collapse {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-primary;
+  background: #e9effc;
+  padding: 0.7rem 1.4rem 0.7rem 0.9rem;
+  border-radius: v.$radius-pill;
+  margin-bottom: 2rem;
+}
+
+.pulse {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: v.$color-accent;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -0.4rem;
+    border-radius: 50%;
+    background: v.$color-accent;
+    opacity: 0.5;
+    animation: pulseRing 2s ease-out infinite;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 4.6vw, 5.4rem);
+  font-weight: v.$font-weight-black;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin: 0 0 2rem;
+  color: v.$color-ink;
+
+  em {
+    font-style: normal;
+    color: v.$color-primary;
+  }
+}
+
+.lede {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: v.$color-text-soft;
+  max-width: 46ch;
+  margin: 0 0 3rem;
+}
+
+.heroCtas {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+}
+
+.trustLine {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.4rem;
+  color: v.$color-text-muted;
+
+  svg {
+    flex-shrink: 0;
+    color: v.$color-success;
+  }
+}
+
+.illustration {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.ticket {
+  position: relative;
+  width: 23.8rem;
+  background: v.$color-ink;
+  border-radius: 2rem;
+  padding: 2.6rem 2.4rem 3rem;
+  color: #fff;
+  box-shadow: 0 3rem 6rem -2.5rem rgba(14, 27, 61, 0.55);
+  transform: rotate(-3deg);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: v.$color-bg;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: -1.1rem;
+  }
+
+  &::after {
+    right: -1.1rem;
+  }
+}
+
+.label {
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  color: #9fb0de;
+  font-weight: v.$font-weight-semibold;
+  margin-bottom: 0.6rem;
+}
+
+.num {
+  font-size: 3.6rem;
+  font-weight: v.$font-weight-black;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.sub {
+  margin-top: 1.4rem;
+  font-size: 1.3rem;
+  color: #b9c6ea;
+  border-top: 0.1rem dashed #33417a;
+  padding-top: 1.2rem;
+}
+
+.waBubble {
+  position: absolute;
+  right: -0.8rem;
+  bottom: 1.4rem;
+  width: 24rem;
+  background: #fff;
+  border-radius: 1.6rem 1.6rem 1.6rem 0.4rem;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 1.8rem 4rem -1.8rem rgba(14, 27, 61, 0.4);
+
+  @include r.nav-collapse {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -3rem;
+  }
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-success;
+  margin-bottom: 0.5rem;
+}
+
+.msg {
+  font-size: 1.4rem;
+  line-height: 1.42;
+  color: v.$color-text;
+
+  b {
+    color: v.$color-primary;
+  }
+}

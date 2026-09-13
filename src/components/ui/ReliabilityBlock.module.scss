@@ -1,0 +1,60 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.reliabBlock {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+
+  h2 {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: v.$font-weight-extrabold;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.4rem;
+    color: v.$color-ink;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.65;
+    color: v.$color-text-soft;
+    max-width: 58ch;
+    margin: 0 0 1.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include r.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statBadge {
+  background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-xl;
+  padding: 2.6rem 3.4rem;
+  text-align: center;
+  box-shadow: v.$shadow-card;
+  min-width: 19rem;
+
+  @include r.tablet {
+    justify-self: start;
+  }
+}
+
+.num {
+  font-size: 3.4rem;
+  font-weight: v.$font-weight-black;
+  color: v.$color-primary;
+  letter-spacing: -0.02em;
+}
+
+.cap {
+  font-size: 1.3rem;
+  color: v.$color-text-muted;
+  margin-top: 0.2rem;
+}

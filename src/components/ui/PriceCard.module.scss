@@ -1,0 +1,86 @@
+@use "../../styles/variables" as v;
+
+.priceStub {
+  background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  padding: 2.8rem 2.4rem;
+  position: relative;
+  box-shadow: v.$shadow-card;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pop {
+  border-color: v.$color-primary;
+  box-shadow: 0 2rem 4rem -1.8rem rgba(30, 64, 175, 0.35);
+}
+
+.tag {
+  position: absolute;
+  top: -1.1rem;
+  left: 2.4rem;
+  background: v.$color-primary;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: v.$font-weight-bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: v.$radius-pill;
+}
+
+.priceStub h3 {
+  font-size: 1.7rem;
+  font-weight: v.$font-weight-extrabold;
+  margin: 0.6rem 0 0.4rem;
+  color: v.$color-ink;
+}
+
+.from {
+  font-size: 1.3rem;
+  color: v.$color-text-muted;
+  margin-bottom: 0.2rem;
+}
+
+.price {
+  font-size: 2.6rem;
+  font-weight: v.$font-weight-black;
+  color: v.$color-ink;
+  margin-bottom: 0.6rem;
+
+  span {
+    font-size: 1.4rem;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-muted;
+  }
+}
+
+.setup {
+  font-size: 1.3rem;
+  color: v.$color-text-muted;
+  margin-bottom: 1.8rem;
+}
+
+.priceStub ul {
+  list-style: none;
+  margin: 0 0 2.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+}
+
+.priceStub li {
+  display: flex;
+  gap: 0.9rem;
+  font-size: 1.4rem;
+  color: v.$color-text-soft;
+  align-items: flex-start;
+
+  svg {
+    color: v.$color-success;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+}

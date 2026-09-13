@@ -1,0 +1,23 @@
+@use "../../styles/variables" as v;
+
+.legalNav {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.6rem;
+
+  a {
+    font-size: 1.4rem;
+    font-weight: v.$font-weight-semibold;
+    padding: 0.8rem 1.4rem;
+    border-radius: v.$radius-pill;
+    border: 0.1rem solid v.$color-border;
+    color: v.$color-text-soft;
+  }
+}
+
+.active {
+  background: v.$color-ink;
+  color: #fff !important;
+  border-color: v.$color-ink !important;
+}

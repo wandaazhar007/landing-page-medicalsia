@@ -1,0 +1,27 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.honestCard {
+  background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  padding: 3.4rem 3.6rem;
+  display: flex;
+  gap: 2.2rem;
+  align-items: flex-start;
+
+  @include r.mobile {
+    flex-direction: column;
+  }
+
+  p {
+    margin: 0;
+    color: v.$color-text-soft;
+    line-height: 1.65;
+    font-size: 1.6rem;
+  }
+
+  strong {
+    color: v.$color-ink;
+  }
+}

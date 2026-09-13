@@ -1,0 +1,61 @@
+@use "../../styles/variables" as v;
+
+.legalDoc {
+  max-width: 76rem;
+
+  h2 {
+    font-size: 2.1rem;
+    font-weight: v.$font-weight-extrabold;
+    margin: 3.8rem 0 1.4rem;
+    color: v.$color-ink;
+    letter-spacing: -0.01em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: v.$color-text-soft;
+    margin: 0 0 1.4rem;
+  }
+
+  ul {
+    margin: 0 0 1.4rem;
+    padding-left: 2rem;
+    color: v.$color-text-soft;
+    font-size: 1.5rem;
+    line-height: 1.7;
+  }
+
+  strong {
+    color: v.$color-ink;
+  }
+
+  a {
+    color: v.$color-primary;
+    font-weight: v.$font-weight-semibold;
+  }
+}
+
+.updated {
+  font-size: 1.3rem;
+  color: v.$color-text-muted;
+  margin-top: 4rem;
+  border-top: 0.1rem solid v.$color-border;
+  padding-top: 1.8rem;
+}
+
+.pendingTag {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-warning;
+  background: v.$color-warning-bg;
+  padding: 0.3rem 1rem;
+  border-radius: v.$radius-pill;
+  margin-left: 0.8rem;
+  vertical-align: middle;
+}

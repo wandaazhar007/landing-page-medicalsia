@@ -1,0 +1,13 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.2rem;
+  align-items: start;
+
+  @include r.tablet {
+    grid-template-columns: 1fr;
+  }
+}

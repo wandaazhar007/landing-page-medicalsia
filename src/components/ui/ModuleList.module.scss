@@ -1,0 +1,38 @@
+@use "../../styles/variables" as v;
+
+.modList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: v.$color-border;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-xl;
+  overflow: hidden;
+}
+
+.mod {
+  background: v.$color-surface;
+  padding: 2.6rem;
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    font-weight: v.$font-weight-extrabold;
+    margin: 0 0 0.6rem;
+    color: v.$color-ink;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: v.$color-text-soft;
+    line-height: 1.55;
+    margin: 0;
+  }
+}

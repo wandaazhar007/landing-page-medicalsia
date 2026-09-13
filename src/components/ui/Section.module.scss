@@ -1,0 +1,16 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.section {
+  padding: 6.4rem 0;
+
+  @include r.mobile {
+    padding: 4.4rem 0;
+  }
+}
+
+.bordered {
+  background: v.$color-surface;
+  border-top: 0.1rem solid v.$color-border;
+  border-bottom: 0.1rem solid v.$color-border;
+}

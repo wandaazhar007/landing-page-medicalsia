@@ -1,0 +1,122 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247, 248, 252, 0.86);
+  backdrop-filter: blur(1rem);
+  border-bottom: 0.1rem solid v.$color-border;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 7.2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: v.$font-weight-extrabold;
+  font-size: 1.7rem;
+  color: v.$color-primary;
+  letter-spacing: -0.01em;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  a {
+    padding: 0.9rem 1.4rem;
+    border-radius: v.$radius-pill;
+    font-size: 1.4rem;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text-soft;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: #eef2fc;
+      color: v.$color-ink;
+    }
+  }
+
+  @include r.nav-collapse {
+    display: none;
+  }
+}
+
+.active {
+  color: v.$color-primary !important;
+  font-weight: v.$font-weight-bold !important;
+  background: #e9effc !important;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ghostLink {
+  padding: 0.9rem 1.6rem;
+  border-radius: v.$radius-pill;
+  font-size: 1.3rem;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-ink;
+  border: 0.15rem solid v.$color-border;
+
+  &:hover {
+    border-color: v.$color-primary;
+    color: v.$color-primary;
+  }
+}
+
+.desktopOnly {
+  @include r.nav-collapse {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: 0.15rem solid v.$color-border;
+  background: v.$color-surface;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: v.$color-ink;
+
+  @include r.nav-collapse {
+    display: inline-flex;
+  }
+}
+
+.mobilePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 2rem 2.2rem;
+  border-bottom: 0.1rem solid v.$color-border;
+  background: v.$color-surface;
+
+  a {
+    padding: 1.2rem 0.4rem;
+    border-bottom: 0.1rem solid v.$color-border;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-ink;
+    font-size: 1.5rem;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use "../../styles/variables" as v;
+
+.head {
+  max-width: 64rem;
+  margin-bottom: 3.6rem;
+
+  h2 {
+    font-size: clamp(2.4rem, 3vw, 3.4rem);
+    font-weight: v.$font-weight-extrabold;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.2rem;
+    color: v.$color-ink;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: v.$color-text-soft;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

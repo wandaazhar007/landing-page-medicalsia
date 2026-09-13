@@ -1,0 +1,11 @@
+@use "../../styles/variables" as v;
+
+.more {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+
+  a {
+    color: v.$color-primary;
+    font-weight: v.$font-weight-bold;
+  }
+}

@@ -1,0 +1,77 @@
+// Design tokens — see docs/06-design-system.md (dashboard Deep Blue palette)
+// The landing page can be more expressive (see docs/09-landing-page-brief.md),
+// so a few extra tokens (ink, gradient surfaces) are used only here.
+
+// Primary / Accent (identical to the dashboard, for brand recognition)
+$color-primary: #1e40af;
+$color-primary-dark: #1e3a8a;
+$color-primary-hover: #1e3a8a;
+$color-primary-light: #dbeafe;
+$color-accent: #3b82f6;
+$color-accent-hover: #2563eb;
+$color-accent-light: #93c5fd;
+
+// Ink — darker navy, used only for expressive landing page elements (CTA band, footer, highlight card)
+$color-ink: #0e1b3d;
+
+// Neutral
+$color-bg: #f7f8fc;
+$color-surface: #ffffff;
+$color-border: #e1e5f0;
+$color-text: #111827;
+$color-text-soft: #4b5573;
+$color-text-muted: #8891a8;
+
+// Semantic
+$color-success: #16a34a;
+$color-success-bg: #dcfce7;
+$color-warning: #d97706;
+$color-warning-bg: #fef3c7;
+$color-danger: #dc2626;
+$color-danger-bg: #fee2e2;
+$color-info: #1e40af;
+$color-info-bg: #dbeafe;
+
+// Typography
+$font-size-xs: 1.2rem;
+$font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
+$font-size-lg: 1.8rem;
+$font-size-xl: 2.2rem;
+$font-size-2xl: 2.8rem;
+$font-size-3xl: 3.6rem;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Spacing (8px grid, base 10px => 1rem = 10px)
+$space-1: 0.4rem;
+$space-2: 0.8rem;
+$space-3: 1.2rem;
+$space-4: 1.6rem;
+$space-5: 2.4rem;
+$space-6: 3.2rem;
+$space-8: 4.8rem;
+
+// Radius & Shadow
+$radius-sm: 0.6rem;
+$radius-md: 0.8rem;
+$radius-lg: 1rem;
+$radius-xl: 1.4rem;
+$radius-pill: 100rem;
+
+$shadow-sm: 0 0.1rem 0.2rem rgba(14, 27, 61, 0.04);
+$shadow-md: 0 0.2rem 0.8rem rgba(14, 27, 61, 0.08);
+$shadow-lg: 0 0.4rem 1.6rem rgba(14, 27, 61, 0.1);
+$shadow-card: 0 0.1rem 0.2rem rgba(14, 27, 61, 0.04), 0 0.8rem 2.4rem -1.2rem rgba(14, 27, 61, 0.18);
+
+// Layout
+$container-max: 112rem;
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-nav: 860px;
+$breakpoint-desktop: 1200px;

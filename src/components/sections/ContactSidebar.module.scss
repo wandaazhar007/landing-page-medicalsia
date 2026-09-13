@@ -1,0 +1,28 @@
+@use "../../styles/variables" as v;
+
+.contactSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.contactChip {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  padding: 1.8rem 2rem;
+}
+
+.lbl {
+  font-size: 1.2rem;
+  color: v.$color-text-muted;
+}
+
+.val {
+  font-size: 1.5rem;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-ink;
+}

@@ -1,0 +1,51 @@
+@use "../../styles/variables" as v;
+
+.ctaBand {
+  background: linear-gradient(155deg, v.$color-ink 0%, #16316f 60%, v.$color-primary 100%);
+  color: #fff;
+  border-radius: v.$radius-xl;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -6rem;
+    top: -6rem;
+    width: 26rem;
+    height: 26rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(147, 197, 253, 0.25), transparent 70%);
+  }
+}
+
+.inner {
+  padding: 4.8rem 4rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  h2 {
+    color: #fff;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    margin: 0 0 1rem;
+    font-weight: v.$font-weight-extrabold;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: #c9d4f2;
+    max-width: 56ch;
+    margin: 0 auto 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+
+.ctaBtn {
+  background: #fff !important;
+  color: v.$color-primary !important;
+
+  &:hover {
+    background: #e9effc !important;
+  }
+}

@@ -1,0 +1,29 @@
+@use "../../styles/variables" as v;
+
+.highlightBox {
+  margin-top: 3.2rem;
+  background: v.$color-ink;
+  color: #fff;
+  border-radius: v.$radius-xl;
+  padding: 3.6rem 3.8rem;
+  display: flex;
+  gap: 2.2rem;
+  align-items: flex-start;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 0 0 0.8rem;
+    font-weight: v.$font-weight-extrabold;
+  }
+
+  p {
+    color: #b9c6ea;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1.5rem;
+  }
+}

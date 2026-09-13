@@ -1,0 +1,59 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+
+  @include r.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col {
+  padding: 2.6rem;
+
+  h4 {
+    font-size: 1.4rem;
+    font-weight: v.$font-weight-bold;
+    margin: 0 0 1.8rem;
+    color: v.$color-text-muted;
+  }
+}
+
+.old {
+  background: v.$color-surface;
+
+  .row {
+    color: v.$color-text-soft;
+  }
+}
+
+.next {
+  background: v.$color-ink;
+  color: #fff;
+
+  h4 {
+    color: v.$color-accent-light;
+  }
+
+  .row {
+    border-bottom: 0.1rem dashed rgba(255, 255, 255, 0.15);
+    color: #dce4f7;
+  }
+}
+
+.row {
+  padding: 1.2rem 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  border-bottom: 0.1rem dashed v.$color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

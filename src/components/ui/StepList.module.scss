@@ -1,0 +1,78 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 2.3rem;
+    left: 8%;
+    right: 8%;
+    height: 0.2rem;
+    background: repeating-linear-gradient(90deg, v.$color-border 0 0.8rem, transparent 0.8rem 1.4rem);
+  }
+
+  @include r.nav-collapse {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.step {
+  position: relative;
+  padding: 0 1.2rem;
+  text-align: left;
+
+  @include r.nav-collapse {
+    padding-left: 1.6rem;
+    border-left: 0.2rem dashed v.$color-border;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: v.$font-weight-bold;
+    margin: 0 0 0.6rem;
+    color: v.$color-ink;
+  }
+
+  p {
+    font-size: 1.3rem;
+    color: v.$color-text-soft;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.n {
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  background: v.$color-surface;
+  border: 0.2rem solid v.$color-primary;
+  color: v.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: v.$font-weight-extrabold;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+  z-index: 1;
+
+  @include r.nav-collapse {
+    margin-left: -2.4rem;
+  }
+}
+
+.first {
+  background: v.$color-primary;
+  color: #fff;
+}

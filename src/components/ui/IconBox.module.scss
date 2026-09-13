@@ -1,0 +1,23 @@
+@use "../../styles/variables" as v;
+
+.iconBox {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 1.2rem;
+  background: v.$color-primary-light;
+  color: v.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lg {
+  width: 5.2rem;
+  height: 5.2rem;
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}

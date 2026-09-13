@@ -1,0 +1,24 @@
+@use "../../styles/variables" as v;
+
+.final {
+  text-align: center;
+
+  h2 {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: v.$font-weight-black;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.4rem;
+    color: v.$color-ink;
+  }
+
+  p {
+    color: v.$color-text-soft;
+    font-size: 1.7rem;
+    margin: 0 0 3rem;
+  }
+}
+
+.ctas {
+  display: flex;
+  justify-content: center;
+}

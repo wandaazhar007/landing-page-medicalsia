@@ -1,0 +1,41 @@
+@use "../../styles/variables" as v;
+
+.painList {
+  display: grid;
+  gap: 0.2rem;
+  background: v.$color-border;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  border: 0.1rem solid v.$color-border;
+}
+
+.painItem {
+  background: v.$color-surface;
+  padding: 2rem 2.2rem;
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+
+  p {
+    margin: 0;
+    font-size: 1.6rem;
+    color: v.$color-text;
+    line-height: 1.5;
+  }
+}
+
+.bar {
+  width: 0.3rem;
+  align-self: stretch;
+  background: v.$color-danger;
+  border-radius: 0.3rem;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.punch {
+  margin-top: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-ink;
+}

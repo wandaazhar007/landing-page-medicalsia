@@ -1,0 +1,12 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.wrap {
+  max-width: v.$container-max;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+
+  @include r.mobile {
+    padding: 0 2rem;
+  }
+}
