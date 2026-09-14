@@ -56,12 +56,15 @@ export default function SyaratKetentuanPage() {
             Ketentuan pembatalan dan pengembalian dana diatur dalam Kebijakan Refund terpisah.
           </p>
 
-          <h2>
-            6. Kontrak Minimum &amp; Perpanjangan <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
+          <h2>6. Kontrak Minimum &amp; Perpanjangan</h2>
           <p>
-            Detail mengenai masa kontrak minimum dan mekanisme perpanjangan sedang disiapkan tim kami. Silakan
-            hubungi kami untuk informasi terkini sebelum berlangganan.
+            Berlangganan Medicalsia memiliki masa kontrak minimum 6 (enam) bulan sejak tanggal aktivasi. Jika
+            Pelanggan mengakhiri layanan sebelum masa kontrak minimum berakhir, Pelanggan tetap wajib melunasi
+            biaya bulanan untuk sisa masa kontrak minimum tersebut.
+          </p>
+          <p>
+            Setelah masa kontrak minimum berakhir, langganan akan diperpanjang secara bulanan dan Pelanggan dapat
+            mengakhiri layanan kapan saja sesuai ketentuan pada Kebijakan Refund.
           </p>
 
           <h2>7. Batasan Tanggung Jawab</h2>

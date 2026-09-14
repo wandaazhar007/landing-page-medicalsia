@@ -22,39 +22,41 @@ export default function KebijakanRefundPage() {
       <Section>
         <LegalNav active="/kebijakan-refund" />
         <div className={styles.legalDoc}>
-          <h2>
-            1. Ruang Lingkup <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
+          <h2>1. Ruang Lingkup</h2>
           <p>
-            Kebijakan ini mengatur pengembalian dana untuk biaya setup dan/atau biaya langganan bulanan Medicalsia.
-            Detail lengkap sedang disiapkan tim kami.
+            Kebijakan ini mengatur pengembalian dana untuk biaya setup dan biaya langganan bulanan Medicalsia yang
+            dibayarkan oleh klinik pelanggan (&ldquo;Pelanggan&rdquo;).
           </p>
 
-          <h2>
-            2. Kondisi yang Memenuhi Syarat Refund <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
-          <p>Detail kondisi yang memenuhi syarat pengembalian dana sedang disiapkan.</p>
-
-          <h2>
-            3. Kondisi yang Tidak Memenuhi Syarat Refund <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
+          <h2>2. Kondisi yang Memenuhi Syarat Refund</h2>
           <p>
-            Umumnya, biaya setup tidak dapat dikembalikan karena mencakup kerja provisioning nyata (pembuatan server
-            dan database khusus klinik Anda). Detail lengkap sedang disiapkan.
+            Pengembalian dana hanya berlaku untuk kesalahan penagihan yang terbukti berasal dari pihak Medicalsia,
+            misalnya kelebihan tagih (double charge) atau kesalahan teknis pada sistem pembayaran. Kesalahan
+            tersebut akan dikembalikan penuh sesuai nilai yang salah tagih.
           </p>
 
-          <h2>
-            4. Proses Pengajuan Refund <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
+          <h2>3. Kondisi yang Tidak Memenuhi Syarat Refund</h2>
           <p>
-            Cara pengajuan dan estimasi waktu proses sedang disiapkan. Untuk saat ini, silakan hubungi tim kami
-            langsung untuk pertanyaan seputar refund.
+            Biaya setup tidak dapat dikembalikan setelah proses provisioning (pembuatan server dan database khusus
+            klinik Anda) dimulai. Biaya bulanan yang sudah dibayar untuk periode berjalan juga tidak dikembalikan
+            (baik sebagian/prorata maupun penuh) apabila Pelanggan mengakhiri langganan di tengah periode —
+            termasuk apabila pengakhiran terjadi sebelum masa kontrak minimum 6 bulan berakhir, di mana Pelanggan
+            tetap wajib melunasi biaya bulanan untuk sisa masa kontrak minimum tersebut (lihat Syarat &amp;
+            Ketentuan pasal 6).
           </p>
 
-          <h2>
-            5. Metode Pengembalian Dana <span className={styles.pendingTag}>Segera Dilengkapi</span>
-          </h2>
-          <p>Detail metode pengembalian dana sedang disiapkan.</p>
+          <h2>4. Proses Pengajuan Refund</h2>
+          <p>
+            Pelanggan dapat mengajukan klaim refund untuk kondisi pada poin 2 dengan menghubungi tim kami melalui
+            kontak resmi yang tersedia di halaman Kontak. Tim kami akan memverifikasi kesalahan penagihan sebelum
+            memproses pengembalian dana.
+          </p>
+
+          <h2>5. Metode Pengembalian Dana</h2>
+          <p>
+            Dana yang memenuhi syarat refund dikembalikan melalui transfer bank ke rekening yang sama dengan yang
+            digunakan untuk pembayaran, kecuali disepakati lain secara tertulis dengan Pelanggan.
+          </p>
 
           <div className={styles.updated}>
             Dokumen ini adalah draft awal dan sedang dalam peninjauan hukum. Terakhir diperbarui: [akan diisi saat
