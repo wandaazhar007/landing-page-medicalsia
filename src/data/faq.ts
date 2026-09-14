@@ -90,13 +90,13 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: "Apakah ada kontrak minimum berlangganan?",
-    answer: "Detail kebijakan ini sedang kami siapkan. Silakan hubungi tim kami untuk informasi terkini.",
-    pending: true,
+    answer:
+      "Ya, ada kontrak minimum 6 bulan sejak aktivasi. Kalau klinik berhenti sebelum periode ini selesai, biaya bulanan untuk sisa masa kontrak minimum tetap perlu dilunasi.",
   },
   {
     question: "Bagaimana kalau saya ingin berhenti berlangganan?",
-    answer: "Kebijakan pembatalan sedang kami siapkan. Silakan hubungi tim kami untuk informasi terkini.",
-    pending: true,
+    answer:
+      "Setelah melewati masa kontrak minimum 6 bulan, klinik bisa berhenti berlangganan kapan saja dengan memberi tahu tim kami — layanan akan berhenti di akhir periode yang sudah dibayar, tanpa refund untuk sisa periode yang belum terpakai.",
   },
   {
     question: "Bagaimana cara menghubungi dukungan teknis?",
