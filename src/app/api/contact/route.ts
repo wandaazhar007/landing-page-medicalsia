@@ -18,6 +18,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Field wajib belum lengkap." }, { status: 400 });
   }
 
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Format email tidak valid." }, { status: 400 });
+  }
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT ?? 587),
