@@ -1,5 +1,11 @@
+import path from "path";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { buildInternalNotificationEmail, buildUserConfirmationEmail } from "@/emails/contactEmails";
+import { LOGO_CID } from "@/emails/template";
+
+const LOGO_PATH = path.join(process.cwd(), "src/emails/assets/logo.png");
+const LOGO_ATTACHMENT = { filename: "medicalsia-logo.png", path: LOGO_PATH, cid: LOGO_CID };
 
 type ContactPayload = {
   nama?: string;
@@ -121,27 +127,39 @@ export async function POST(request: Request) {
     },
   });
 
+  const lead = { nama, klinik, hp, email, sistem, pesan };
+
   try {
+    const internalEmail = buildInternalNotificationEmail(lead);
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
+      from: `Medicalsia <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_FORM_EMAIL_TO || "cs@medicalsia.com",
       replyTo: email,
-      subject: `Request Demo — ${klinik}`.slice(0, 200),
-      text: [
-        `Nama: ${nama}`,
-        `Nama Klinik: ${klinik}`,
-        `No. HP/WhatsApp: ${hp}`,
-        `Email: ${email}`,
-        `Sistem/aplikasi klinik saat ini: ${sistem || "-"}`,
-        "",
-        "Pesan:",
-        pesan,
-      ].join("\n"),
+      subject: internalEmail.subject,
+      text: internalEmail.text,
+      html: internalEmail.html,
+      attachments: [LOGO_ATTACHMENT],
     });
-
-    return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Gagal mengirim email form kontak:", error);
     return NextResponse.json({ error: "Gagal mengirim email." }, { status: 500 });
   }
+
+  try {
+    const confirmationEmail = buildUserConfirmationEmail(lead);
+    await transporter.sendMail({
+      from: `Medicalsia <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: confirmationEmail.subject,
+      text: confirmationEmail.text,
+      html: confirmationEmail.html,
+      attachments: [LOGO_ATTACHMENT],
+    });
+  } catch (error) {
+    // The lead already reached cs@medicalsia.com — a failed confirmation email
+    // to the user shouldn't turn this into a failed submission.
+    console.error("Gagal mengirim email konfirmasi ke user:", error);
+  }
+
+  return NextResponse.json({ ok: true });
 }

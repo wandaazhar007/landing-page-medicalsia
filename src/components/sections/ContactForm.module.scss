@@ -84,11 +84,31 @@
   pointer-events: none;
 }
 
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  padding: 1.2rem 0;
+}
+
+.successIcon {
+  color: v.$color-success;
+}
+
+.successTitle {
+  font-size: 2rem;
+  color: v.$color-ink;
+  margin: 0;
+}
+
 .successMessage {
   font-size: 1.6rem;
-  color: v.$color-success;
+  color: v.$color-text-muted;
   line-height: 1.6;
   margin: 0;
+  max-width: 42rem;
 }
 
 .errorMessage {

@@ -1,44 +1,64 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Loader2, Send } from "lucide-react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { CheckCircle, Loader2, Send } from "lucide-react";
 import Button from "@/components/ui/Button";
 import styles from "./ContactForm.module.scss";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-type FieldName = "nama" | "klinik" | "hp" | "email" | "pesan";
+type FieldName = "nama" | "klinik" | "hp" | "email" | "sistem" | "pesan";
 
 type FieldErrors = Partial<Record<FieldName, string>>;
+
+const STORAGE_KEY = "medicalsia:contact-form";
+
+const INITIAL_VALUES: Record<FieldName, string> = {
+  nama: "",
+  klinik: "",
+  hp: "",
+  email: "",
+  sistem: "",
+  pesan: "",
+};
 
 const PHONE_REGEX = /^[0-9+\-()\s]{9,20}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(formData: FormData): FieldErrors {
+function loadStoredValues(): Record<FieldName, string> {
+  const values = { ...INITIAL_VALUES };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return values;
+    const parsed = JSON.parse(raw);
+    for (const field of Object.keys(INITIAL_VALUES) as FieldName[]) {
+      if (typeof parsed[field] === "string") values[field] = parsed[field];
+    }
+  } catch {
+    // Corrupted or inaccessible storage (private browsing, quota, etc.) — ignore.
+  }
+  return values;
+}
+
+function validate(values: Record<FieldName, string>): FieldErrors {
   const errors: FieldErrors = {};
 
-  const nama = String(formData.get("nama") ?? "").trim();
-  const klinik = String(formData.get("klinik") ?? "").trim();
-  const hp = String(formData.get("hp") ?? "").trim();
-  const email = String(formData.get("email") ?? "").trim();
-  const pesan = String(formData.get("pesan") ?? "").trim();
+  if (!values.nama.trim()) errors.nama = "Nama wajib diisi.";
+  if (!values.klinik.trim()) errors.klinik = "Nama klinik wajib diisi.";
 
-  if (!nama) errors.nama = "Nama wajib diisi.";
-  if (!klinik) errors.klinik = "Nama klinik wajib diisi.";
-
-  if (!hp) {
+  if (!values.hp.trim()) {
     errors.hp = "No. HP/WhatsApp wajib diisi.";
-  } else if (!PHONE_REGEX.test(hp)) {
+  } else if (!PHONE_REGEX.test(values.hp.trim())) {
     errors.hp = "Format no. HP tidak valid.";
   }
 
-  if (!email) {
+  if (!values.email.trim()) {
     errors.email = "Email wajib diisi.";
-  } else if (!EMAIL_REGEX.test(email)) {
+  } else if (!EMAIL_REGEX.test(values.email.trim())) {
     errors.email = "Format email tidak valid.";
   }
 
-  if (!pesan) errors.pesan = "Pesan wajib diisi.";
+  if (!values.pesan.trim()) errors.pesan = "Pesan wajib diisi.";
 
   return errors;
 }
@@ -47,8 +67,23 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [values, setValues] = useState<Record<FieldName, string>>(INITIAL_VALUES);
+  const websiteRef = useRef<HTMLInputElement>(null);
 
-  function clearFieldError(field: FieldName) {
+  useEffect(() => {
+    setValues(loadStoredValues());
+  }, []);
+
+  function updateField(field: FieldName, value: string) {
+    setValues((prev) => {
+      const next = { ...prev, [field]: value };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Ignore — persistence is a convenience, not a requirement.
+      }
+      return next;
+    });
     setFieldErrors((prev) => {
       if (!prev[field]) return prev;
       const next = { ...prev };
@@ -57,19 +92,29 @@ export default function ContactForm() {
     });
   }
 
+  function handleFieldChange(field: FieldName) {
+    return (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => updateField(field, event.target.value);
+  }
+
+  function clearStoredValues() {
+    setValues(INITIAL_VALUES);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Ignore.
+    }
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setErrorMessage("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const errors = validate(formData);
+    const errors = validate(values);
     setFieldErrors(errors);
     if (Object.keys(errors).length > 0) return;
 
     setStatus("submitting");
-    const payload = Object.fromEntries(formData.entries());
+    const payload = { ...values, website: websiteRef.current?.value ?? "" };
 
     try {
       const response = await fetch("/api/contact", {
@@ -84,7 +129,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      form.reset();
+      clearStoredValues();
     } catch (error) {
       setStatus("error");
       setErrorMessage(
@@ -98,9 +143,14 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className={styles.formCard}>
-        <p className={styles.successMessage}>
-          Terima kasih! Pesan Anda sudah kami terima. Tim kami akan menghubungi Anda secepatnya.
-        </p>
+        <div className={styles.success}>
+          <CheckCircle size={40} className={styles.successIcon} />
+          <h3 className={styles.successTitle}>Request demo berhasil terkirim!</h3>
+          <p className={styles.successMessage}>
+            Terima kasih, permintaan Anda sudah kami terima dan akan segera diproses. Tim kami akan menghubungi Anda
+            secepatnya.
+          </p>
+        </div>
       </div>
     );
   }
@@ -111,7 +161,7 @@ export default function ContactForm() {
         {/* Honeypot — hidden from real visitors, bots tend to fill every input they find. */}
         <div className={styles.honeypot} aria-hidden="true">
           <label htmlFor="website">Website</label>
-          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" ref={websiteRef} />
         </div>
 
         <div className={styles.formGrid}>
@@ -122,8 +172,9 @@ export default function ContactForm() {
               name="nama"
               type="text"
               placeholder="Nama Anda"
+              value={values.nama}
               aria-invalid={fieldErrors.nama ? "true" : undefined}
-              onChange={() => clearFieldError("nama")}
+              onChange={handleFieldChange("nama")}
             />
             {fieldErrors.nama ? <span className={styles.fieldErrorText}>{fieldErrors.nama}</span> : null}
           </div>
@@ -134,8 +185,9 @@ export default function ContactForm() {
               name="klinik"
               type="text"
               placeholder="Klinik Sehat Sentosa"
+              value={values.klinik}
               aria-invalid={fieldErrors.klinik ? "true" : undefined}
-              onChange={() => clearFieldError("klinik")}
+              onChange={handleFieldChange("klinik")}
             />
             {fieldErrors.klinik ? <span className={styles.fieldErrorText}>{fieldErrors.klinik}</span> : null}
           </div>
@@ -146,8 +198,9 @@ export default function ContactForm() {
               name="hp"
               type="tel"
               placeholder="08xx-xxxx-xxxx"
+              value={values.hp}
               aria-invalid={fieldErrors.hp ? "true" : undefined}
-              onChange={() => clearFieldError("hp")}
+              onChange={handleFieldChange("hp")}
             />
             {fieldErrors.hp ? <span className={styles.fieldErrorText}>{fieldErrors.hp}</span> : null}
           </div>
@@ -158,14 +211,22 @@ export default function ContactForm() {
               name="email"
               type="email"
               placeholder="nama@email.com"
+              value={values.email}
               aria-invalid={fieldErrors.email ? "true" : undefined}
-              onChange={() => clearFieldError("email")}
+              onChange={handleFieldChange("email")}
             />
             {fieldErrors.email ? <span className={styles.fieldErrorText}>{fieldErrors.email}</span> : null}
           </div>
           <div className={`${styles.field} ${styles.full}`}>
             <label htmlFor="sistem">Saat ini pakai sistem/aplikasi klinik apa?</label>
-            <input id="sistem" name="sistem" type="text" placeholder="Opsional — misal: masih manual, atau nama sistem yang dipakai" />
+            <input
+              id="sistem"
+              name="sistem"
+              type="text"
+              placeholder="Opsional — misal: masih manual, atau nama sistem yang dipakai"
+              value={values.sistem}
+              onChange={handleFieldChange("sistem")}
+            />
           </div>
           <div className={`${styles.field} ${styles.full} ${fieldErrors.pesan ? styles.fieldError : ""}`}>
             <label htmlFor="pesan">Pesan</label>
@@ -173,8 +234,9 @@ export default function ContactForm() {
               id="pesan"
               name="pesan"
               placeholder="Ceritakan kebutuhan klinik Anda..."
+              value={values.pesan}
               aria-invalid={fieldErrors.pesan ? "true" : undefined}
-              onChange={() => clearFieldError("pesan")}
+              onChange={handleFieldChange("pesan")}
             />
             {fieldErrors.pesan ? <span className={styles.fieldErrorText}>{fieldErrors.pesan}</span> : null}
           </div>
