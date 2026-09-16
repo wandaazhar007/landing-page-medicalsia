@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Kenapa Pindah?",
   description:
     "Sudah pakai aplikasi klinik lain? Lihat perbandingan, proses migrasi data, dan reliabilitas server Medicalsia sebelum memutuskan pindah.",
+  alternates: { canonical: "/migrasi" },
 };
 
 const COMPARE_ROWS = [

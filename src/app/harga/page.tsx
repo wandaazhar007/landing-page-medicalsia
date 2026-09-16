@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Harga",
   description:
     "Tiga paket Medicalsia — Starter, Professional, dan Enterprise/Multi-Cabang. Biaya setup sekali di awal, plus biaya bulanan yang mencakup hosting dan dukungan teknis.",
+  alternates: { canonical: "/harga" },
 };
 
 const PRICING_FAQ = [

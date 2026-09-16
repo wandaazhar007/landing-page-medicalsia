@@ -8,6 +8,7 @@ import styles from "@/components/ui/LegalDoc.module.scss";
 export const metadata: Metadata = {
   title: "Syarat & Ketentuan",
   description: "Syarat dan ketentuan penggunaan layanan Medicalsia untuk klinik pelanggan.",
+  alternates: { canonical: "/syarat-ketentuan" },
 };
 
 export default function SyaratKetentuanPage() {

@@ -3,7 +3,7 @@ import IconBox from "@/components/ui/IconBox";
 import styles from "./ContactSidebar.module.scss";
 
 const CONTACT_CHIPS = [
-  { icon: <Mail size={18} />, label: "Email", value: "halo@medicalsia.id" },
+  { icon: <Mail size={18} />, label: "Email", value: "cs@medicalsia.com" },
   { icon: <MessageCircle size={18} />, label: "WhatsApp", value: "0812-xxxx-xxxx" },
   { icon: <Clock size={18} />, label: "Jam Respons", value: "Senin–Sabtu, 09.00–17.00" },
 ];

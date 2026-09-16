@@ -8,6 +8,7 @@ import styles from "@/components/ui/LegalDoc.module.scss";
 export const metadata: Metadata = {
   title: "Kebijakan Refund",
   description: "Kebijakan pengembalian dana Medicalsia — sebagian besar masih dalam proses penyusunan.",
+  alternates: { canonical: "/kebijakan-refund" },
 };
 
 export default function KebijakanRefundPage() {

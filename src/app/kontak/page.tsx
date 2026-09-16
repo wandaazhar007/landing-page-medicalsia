@@ -9,6 +9,7 @@ import styles from "./kontak.module.scss";
 export const metadata: Metadata = {
   title: "Kontak",
   description: "Ceritakan kondisi klinik Anda — isi form request demo atau hubungi tim Medicalsia langsung.",
+  alternates: { canonical: "/kontak" },
 };
 
 export default function KontakPage() {

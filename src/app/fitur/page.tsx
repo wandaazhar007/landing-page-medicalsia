@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Fitur",
   description:
     "Modul yang benar-benar dipakai klinik setiap hari: pendaftaran, appointment & antrian, konsultasi, farmasi, kasir, notifikasi WhatsApp, dan cetak dokumen.",
+  alternates: { canonical: "/fitur" },
 };
 
 const MODULES = [

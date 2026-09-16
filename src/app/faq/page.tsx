@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Semua pertanyaan seputar Medicalsia dalam satu halaman — keamanan data, reliabilitas server, migrasi dari sistem lain, harga, dan fitur.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {

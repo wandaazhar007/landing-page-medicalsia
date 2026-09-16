@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Tentang Kami",
   description:
     "Medicalsia lahir dari pengamatan sederhana: klinik kecil-menengah di Indonesia pantas punya alat operasional yang sama baiknya dengan fasilitas kesehatan besar.",
+  alternates: { canonical: "/tentang" },
 };
 
 export default function TentangPage() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Kebijakan Privasi",
   description:
     "Bagaimana Medicalsia mengumpulkan, menggunakan, dan melindungi data pribadi — mengacu pada UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi.",
+  alternates: { canonical: "/kebijakan-privasi" },
 };
 
 export default function KebijakanPrivasiPage() {
@@ -95,7 +96,7 @@ export default function KebijakanPrivasiPage() {
           <h2>Kontak</h2>
           <p>
             Pertanyaan seputar kebijakan privasi ini dapat diajukan ke{" "}
-            <a href="mailto:privasi@medicalsia.id">privasi@medicalsia.id</a>.
+            <a href="mailto:cs@medicalsia.com">cs@medicalsia.com</a>.
           </p>
 
           <div className={styles.updated}>

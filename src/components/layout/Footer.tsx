@@ -49,7 +49,7 @@ export default function Footer() {
             <h4>Hubungi Kami</h4>
             <ul>
               <li>
-                <a href="mailto:halo@medicalsia.id">halo@medicalsia.id</a>
+                <a href="mailto:cs@medicalsia.com">cs@medicalsia.com</a>
               </li>
               <li>
                 <Link href="/kontak">WhatsApp Admin</Link>
