@@ -32,7 +32,7 @@ export default function Hero() {
             <span className={styles.ecosystemLabel}>Dirancang mengacu ke ekosistem SATU SEHAT &amp; BPJS</span>
             <div className={styles.ecosystemLogos}>
               {ECOSYSTEM_LOGOS.map((logo) => (
-                <Image key={logo.alt} src={logo.src} alt={logo.alt} width={54} height={54} />
+                <Image key={logo.alt} src={logo.src} alt={logo.alt} width={54} height={54} priority />
               ))}
             </div>
           </div>

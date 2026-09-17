@@ -62,6 +62,7 @@ export default function ScreenshotGallery() {
           alt={active.alt}
           width={1280}
           height={800}
+          sizes="90vw"
           className={styles.lightboxImage}
         />
         <p className={styles.lightboxCaption}>{active.caption}</p>
@@ -104,6 +105,7 @@ export default function ScreenshotGallery() {
               alt={shot.alt}
               width={640}
               height={400}
+              sizes="(max-width: 480px) 100vw, (max-width: 860px) 50vw, 33vw"
               className={styles.thumbImage}
             />
             <div className={styles.caption}>{shot.caption}</div>
