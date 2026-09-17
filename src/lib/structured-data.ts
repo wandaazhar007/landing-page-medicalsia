@@ -1,4 +1,5 @@
 import { PRICING_PLANS } from "@/data/pricing";
+import { FAQ_ITEMS } from "@/data/faq";
 
 // JSON-LD for the homepage. Deliberately has NO aggregateRating/review —
 // fabricating star ratings without real reviews violates Google's structured
@@ -24,6 +25,21 @@ export function getOrganizationSchema() {
       areaServed: "ID",
       availableLanguage: ["Indonesian"],
     },
+  };
+}
+
+export function getFaqPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.filter((item) => !item.pending).map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 

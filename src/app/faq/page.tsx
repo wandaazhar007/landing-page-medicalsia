@@ -5,6 +5,7 @@ import Section from "@/components/ui/Section";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import CtaBand from "@/components/ui/CtaBand";
 import { FAQ_ITEMS } from "@/data/faq";
+import { getFaqPageSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqPageSchema()) }} />
       <PageHero
         eyebrow="FAQ"
         title="Semua pertanyaan, satu halaman."
