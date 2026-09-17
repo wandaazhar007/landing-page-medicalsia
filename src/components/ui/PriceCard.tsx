@@ -6,6 +6,7 @@ export type PriceCardData = {
   name: string;
   fromLabel: string;
   price: string;
+  priceAmount: number;
   priceSuffix?: string;
   setupNote?: string;
   features: string[];

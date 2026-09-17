@@ -7,6 +7,7 @@ export const PRICING_PLANS: PriceCardData[] = [
     name: "Starter",
     fromLabel: "Biaya bulanan mulai dari",
     price: "Rp350rb",
+    priceAmount: 350000,
     priceSuffix: "/bulan",
     setupNote: "+ setup Rp1,5 juta (sekali)",
     features: [
@@ -24,6 +25,7 @@ export const PRICING_PLANS: PriceCardData[] = [
     name: "Professional",
     fromLabel: "Biaya bulanan mulai dari",
     price: "Rp500rb",
+    priceAmount: 500000,
     priceSuffix: "/bulan",
     setupNote: "+ setup Rp2,5 juta (sekali)",
     features: [
@@ -45,6 +47,7 @@ export const PRICING_PLANS: PriceCardData[] = [
     name: "Enterprise / Multi-Cabang",
     fromLabel: "Biaya bulanan mulai dari",
     price: "Rp1,5jt",
+    priceAmount: 1500000,
     priceSuffix: "/bulan (bundel)",
     setupNote: "Setup: custom, diskon per cabang tambahan",
     features: [

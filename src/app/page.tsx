@@ -12,6 +12,7 @@ import TestimonialSection from "@/components/sections/TestimonialSection";
 import PricingTeaser from "@/components/sections/PricingTeaser";
 import FaqShortSection from "@/components/sections/FaqShortSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
+import { getOrganizationSchema, getSoftwareApplicationSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Medicalsia — Aplikasi Manajemen Klinik untuk Indonesia",
@@ -22,6 +23,14 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getSoftwareApplicationSchema()) }}
+      />
       <Hero />
       <ProblemSection />
       <FeatureGrid />
