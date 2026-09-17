@@ -22,7 +22,7 @@ export default function Hero() {
           <h1>
             Kelola klinik Anda,
             <br />
-            tanpa drama <em>pindah sistem</em>.
+            pindah sistem <em>tanpa drama</em>.
           </h1>
           <p className={styles.lede}>
             Medicalsia mengurus pendaftaran, antrian, konsultasi, farmasi, sampai kasir dalam satu aplikasi — dan
