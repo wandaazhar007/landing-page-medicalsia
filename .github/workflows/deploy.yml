@@ -21,7 +21,7 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh -i ~/.ssh/deploy_key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
-            cd ~/landing-page-medicalsia &&
+            cd /var/www/landing-medicalsia &&
             git pull origin main &&
             npm install &&
             npm run build &&
