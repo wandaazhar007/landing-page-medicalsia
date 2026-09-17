@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero";
 import ProblemSection from "@/components/sections/ProblemSection";
 import FeatureGrid from "@/components/sections/FeatureGrid";
 import FlowSection from "@/components/sections/FlowSection";
+import ScreenshotGallery from "@/components/sections/ScreenshotGallery";
 import Section from "@/components/ui/Section";
 import ReliabilityBlock from "@/components/ui/ReliabilityBlock";
 import CtaBand from "@/components/ui/CtaBand";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <ProblemSection />
       <FeatureGrid />
       <FlowSection />
+      <ScreenshotGallery />
       <Section>
         <ReliabilityBlock title="&#8220;Server-nya kuat, nggak?&#8221;">
           <p>

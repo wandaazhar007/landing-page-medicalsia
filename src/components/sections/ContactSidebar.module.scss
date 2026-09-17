@@ -14,6 +14,17 @@
   border: 0.1rem solid v.$color-border;
   border-radius: v.$radius-lg;
   padding: 1.8rem 2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.contactChip {
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    border-color: v.$color-accent;
+    background: v.$color-info-bg;
+  }
 }
 
 .lbl {

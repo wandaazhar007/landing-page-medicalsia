@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { getWhatsappHref } from "@/lib/whatsapp";
 import "./globals.scss";
 
 const inter = Inter({
@@ -50,10 +51,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const whatsappHref = getWhatsappHref() ?? "/kontak";
+
   return (
     <html lang="id" className={inter.className}>
       <body>
-        <Navbar />
+        <Navbar whatsappHref={whatsappHref} />
         <main>{children}</main>
         <Footer />
       </body>

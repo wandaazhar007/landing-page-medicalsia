@@ -1,0 +1,165 @@
+@use "../../styles/variables" as v;
+@use "../../styles/responsive" as r;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include r.nav-collapse {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include r.mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-card;
+  padding: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: v.$shadow-lg;
+  }
+}
+
+.browserBar {
+  display: flex;
+  gap: 0.6rem;
+  padding: 1rem 1.4rem;
+  background: v.$color-bg;
+  border-bottom: 0.1rem solid v.$color-border;
+
+  span {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: v.$color-border;
+  }
+}
+
+.thumbImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  padding: 1.4rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-ink;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(14, 27, 61, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem;
+}
+
+.lightboxContent {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightboxImage {
+  width: 100%;
+  height: auto;
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: v.$radius-md;
+}
+
+.lightboxCaption {
+  margin: 1.6rem 0 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: v.$font-weight-semibold;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  @include r.mobile {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  @include r.mobile {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.navPrev {
+  left: 2.4rem;
+
+  @include r.mobile {
+    left: 1rem;
+  }
+}
+
+.navNext {
+  right: 2.4rem;
+
+  @include r.mobile {
+    right: 1rem;
+  }
+}

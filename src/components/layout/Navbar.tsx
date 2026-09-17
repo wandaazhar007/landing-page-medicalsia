@@ -26,7 +26,11 @@ const MENU_LINKS = [
   { href: "/faq", label: "FAQ", icon: HelpCircle },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+  whatsappHref: string;
+};
+
+export default function Navbar({ whatsappHref }: NavbarProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   // Portal target (document.body) only exists on the client — this avoids a
@@ -76,10 +80,10 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link href="/kontak" onClick={() => setOpen(false)}>
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
             <Phone size={18} />
             Hubungi Kami
-          </Link>
+          </a>
         </nav>
         <div className={styles.sidebarFooter}>
           <LinkButton href="/kontak" block className={styles.sidebarCta}>
@@ -106,9 +110,14 @@ export default function Navbar() {
           ))}
         </nav>
         <div className={styles.navActions}>
-          <Link href="/kontak" className={`${styles.ghostLink} ${styles.desktopOnly}`}>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.ghostLink} ${styles.desktopOnly}`}
+          >
             Hubungi Kami
-          </Link>
+          </a>
           <LinkButton href="/kontak" size="sm" className={styles.desktopOnly}>
             Request Demo
           </LinkButton>
