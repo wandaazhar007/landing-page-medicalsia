@@ -23,7 +23,7 @@ export const PRICING_PLANS: PriceCardData[] = [
   {
     name: "Professional",
     fromLabel: "Biaya bulanan mulai dari",
-    price: "Rp750rb",
+    price: "Rp500rb",
     priceSuffix: "/bulan",
     setupNote: "+ setup Rp2,5 juta (sekali)",
     features: [
@@ -31,6 +31,9 @@ export const PRICING_PLANS: PriceCardData[] = [
       "Notifikasi WhatsApp & Email otomatis",
       "Dukungan prioritas",
       "Custom domain",
+      "Daftar/Booking online",
+      "Gratis Website",
+      "SEO Priority",
     ],
     ctaLabel: "Pilih Professional",
     ctaHref: "/kontak",

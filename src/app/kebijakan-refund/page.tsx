@@ -58,10 +58,14 @@ export default function KebijakanRefundPage() {
             Dana yang memenuhi syarat refund dikembalikan melalui transfer bank ke rekening yang sama dengan yang
             digunakan untuk pembayaran, kecuali disepakati lain secara tertulis dengan Pelanggan.
           </p>
-
+          {/* 
           <div className={styles.updated}>
             Dokumen ini adalah draft awal dan sedang dalam peninjauan hukum. Terakhir diperbarui: [akan diisi saat
             publikasi final]
+          </div> */}
+
+          <div className={styles.updated}>
+            Terakhir diperbarui: <span className={styles.updatedDate}>16 September 2026</span>
           </div>
         </div>
       </Section>

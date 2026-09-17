@@ -79,16 +79,19 @@ export default function SyaratKetentuanPage() {
           <h2>8. Kekayaan Intelektual</h2>
           <p>
             Seluruh hak kekayaan intelektual atas perangkat lunak, desain, dan merek Medicalsia tetap menjadi milik
-            Medicalsia. Data yang diinput Pelanggan (termasuk data pasien) tetap menjadi milik Pelanggan/pasien
-            terkait.
+            Medicalsia. Data yang diinput Pelanggan (termasuk data pasien) tetap menjadi <span className={styles.updatedDate}>milik Pelanggan/pasien</span> terkait.
           </p>
 
           <h2>9. Hukum yang Berlaku</h2>
           <p>Syarat dan Ketentuan ini tunduk pada hukum Republik Indonesia.</p>
 
-          <div className={styles.updated}>
+          {/* <div className={styles.updated}>
             Dokumen ini adalah draft awal dan sedang dalam peninjauan hukum. Terakhir diperbarui: [akan diisi saat
             publikasi final]
+          </div> */}
+
+          <div className={styles.updated}>
+            Terakhir diperbarui: <span className={styles.updatedDate}>16 September 2026</span>
           </div>
         </div>
       </Section>

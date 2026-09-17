@@ -2,15 +2,14 @@
 
 .painList {
   display: grid;
-  gap: 0.2rem;
-  background: v.$color-border;
-  border-radius: v.$radius-lg;
-  overflow: hidden;
-  border: 0.1rem solid v.$color-border;
+  gap: 1.4rem;
 }
 
 .painItem {
   background: v.$color-surface;
+  border: 0.1rem solid v.$color-border;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-card;
   padding: 2rem 2.2rem;
   display: flex;
   gap: 1.6rem;

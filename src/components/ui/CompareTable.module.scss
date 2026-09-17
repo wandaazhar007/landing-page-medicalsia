@@ -48,6 +48,9 @@
 }
 
 .row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1.2rem 0;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -56,4 +59,18 @@
   &:last-child {
     border-bottom: none;
   }
+
+  span {
+    flex: 1;
+  }
+}
+
+.iconOld {
+  flex-shrink: 0;
+  color: v.$color-danger;
+}
+
+.iconNext {
+  flex-shrink: 0;
+  color: v.$color-success;
 }

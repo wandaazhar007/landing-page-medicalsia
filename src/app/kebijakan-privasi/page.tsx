@@ -86,7 +86,8 @@ export default function KebijakanPrivasiPage() {
           </p>
 
           <h2>
-            Data Anak <span className={styles.pendingTag}>Segera Dilengkapi</span>
+            Data Anak
+            {/* <span className={styles.pendingTag}>Segera Dilengkapi</span> */}
           </h2>
           <p>
             Untuk pasien anak di bawah umur, data diproses berdasarkan persetujuan orang tua/wali sesuai mekanisme
@@ -99,9 +100,12 @@ export default function KebijakanPrivasiPage() {
             <a href="mailto:cs@medicalsia.com">cs@medicalsia.com</a>.
           </p>
 
-          <div className={styles.updated}>
+          {/* <div className={styles.updated}>
             Dokumen ini adalah draft awal dan sedang dalam peninjauan hukum. Terakhir diperbarui: [akan diisi saat
             publikasi final]
+          </div> */}
+          <div className={styles.updated}>
+            Terakhir diperbarui: <span className={styles.updatedDate}>16 September 2026</span>
           </div>
         </div>
       </Section>

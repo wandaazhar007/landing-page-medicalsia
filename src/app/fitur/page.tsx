@@ -3,9 +3,13 @@ import { ClipboardList, Calendar, Stethoscope, Pill, CreditCard, Printer, Messag
 import PageHero from "@/components/ui/PageHero";
 import Divider from "@/components/ui/Divider";
 import Section from "@/components/ui/Section";
+import SectionHead from "@/components/ui/SectionHead";
 import IconBox from "@/components/ui/IconBox";
 import HighlightBox from "@/components/ui/HighlightBox";
+import FaqAccordion from "@/components/ui/FaqAccordion";
+import FaqMoreButton from "@/components/ui/FaqMoreButton";
 import CtaBand from "@/components/ui/CtaBand";
+import { FAQ_ITEMS } from "@/data/faq";
 import styles from "@/components/ui/ModuleList.module.scss";
 
 export const metadata: Metadata = {
@@ -53,6 +57,14 @@ const MODULES = [
   },
 ];
 
+const FITUR_FAQ_QUESTIONS = [
+  "Fitur apa saja yang ada di Medicalsia?",
+  "Apakah notifikasi WhatsApp benar-benar otomatis?",
+  "Apakah bisa terima pembayaran kartu/QRIS?",
+];
+
+const FITUR_FAQ = FITUR_FAQ_QUESTIONS.map((question) => FAQ_ITEMS.find((item) => item.question === question)!);
+
 export default function FiturPage() {
   return (
     <>
@@ -79,6 +91,12 @@ export default function FiturPage() {
           — semua terkirim sendiri dari nomor WhatsApp klinik Anda. Staf tidak perlu lagi kirim pesan satu-satu ke
           tiap pasien.
         </HighlightBox>
+      </Section>
+      <Divider />
+      <Section>
+        <SectionHead title="Pertanyaan seputar fitur" />
+        <FaqAccordion items={FITUR_FAQ} />
+        <FaqMoreButton />
       </Section>
       <CtaBand title="Mau lihat langsung cara kerjanya?" ctaLabel="Request Demo" ctaHref="/kontak">
         Kami tunjukkan lewat demo singkat, disesuaikan dengan alur klinik Anda.

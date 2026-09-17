@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { Mail, MessageCircle } from "lucide-react";
 import Container from "@/components/ui/Container";
 import LogoIcon from "@/components/ui/LogoIcon";
+import { getWhatsappHref } from "@/lib/whatsapp";
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const whatsappHref = getWhatsappHref() ?? "/kontak";
 
   return (
     <footer className={styles.site}>
@@ -49,10 +52,16 @@ export default function Footer() {
             <h4>Hubungi Kami</h4>
             <ul>
               <li>
-                <a href="mailto:cs@medicalsia.com">cs@medicalsia.com</a>
+                <a href="mailto:cs@medicalsia.com" className={styles.contactLink}>
+                  <Mail size={16} />
+                  cs@medicalsia.com
+                </a>
               </li>
               <li>
-                <Link href="/kontak">WhatsApp Admin</Link>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                  <MessageCircle size={16} />
+                  WhatsApp Admin
+                </a>
               </li>
             </ul>
           </div>

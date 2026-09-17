@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Section from "@/components/ui/Section";
 import SectionHead from "@/components/ui/SectionHead";
 import FaqAccordion from "@/components/ui/FaqAccordion";
-import styles from "./FaqShortSection.module.scss";
+import FaqMoreButton from "@/components/ui/FaqMoreButton";
 
 const HOME_FAQ = [
   {
@@ -25,9 +24,7 @@ export default function FaqShortSection() {
     <Section>
       <SectionHead title="Pertanyaan yang sering muncul" />
       <FaqAccordion items={HOME_FAQ} />
-      <p className={styles.more}>
-        <Link href="/faq">Lihat semua pertanyaan →</Link>
-      </p>
+      <FaqMoreButton />
     </Section>
   );
 }

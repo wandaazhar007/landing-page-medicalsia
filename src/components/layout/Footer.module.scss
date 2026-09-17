@@ -70,6 +70,17 @@
   }
 }
 
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  svg {
+    flex-shrink: 0;
+    color: #fff;
+  }
+}
+
 .footBottom {
   border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
   padding-top: 2.2rem;
@@ -80,12 +91,22 @@
   gap: 1.2rem;
   font-size: 1.3rem;
   color: #6e80b3;
+
+  @include r.mobile {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .legalLinks {
   display: flex;
   gap: 1.8rem;
   flex-wrap: wrap;
+
+  @include r.mobile {
+    justify-content: center;
+  }
 
   a {
     color: #6e80b3;

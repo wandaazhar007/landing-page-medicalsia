@@ -5,6 +5,7 @@ import Section from "@/components/ui/Section";
 import SectionHead from "@/components/ui/SectionHead";
 import PriceCard from "@/components/ui/PriceCard";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import FaqMoreButton from "@/components/ui/FaqMoreButton";
 import CtaBand from "@/components/ui/CtaBand";
 import { PRICING_PLANS } from "@/data/pricing";
 import priceGridStyles from "@/components/ui/PriceGrid.module.scss";
@@ -56,6 +57,7 @@ export default function HargaPage() {
       <Section>
         <SectionHead title="Pertanyaan seputar harga" />
         <FaqAccordion items={PRICING_FAQ} />
+        <FaqMoreButton />
       </Section>
       <CtaBand title="Butuh paket khusus?" ctaLabel="Hubungi Kami" ctaHref="/kontak">
         Untuk kebutuhan multi-cabang atau custom, tim kami siap diskusi langsung.

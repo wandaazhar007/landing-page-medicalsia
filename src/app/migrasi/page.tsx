@@ -7,6 +7,7 @@ import CompareTable from "@/components/ui/CompareTable";
 import ReliabilityBlock from "@/components/ui/ReliabilityBlock";
 import StepList from "@/components/ui/StepList";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import FaqMoreButton from "@/components/ui/FaqMoreButton";
 import CtaBand from "@/components/ui/CtaBand";
 import styles from "./migrasi.module.scss";
 
@@ -104,6 +105,7 @@ export default function MigrasiPage() {
       <Section>
         <SectionHead title="Pertanyaan seputar migrasi" />
         <FaqAccordion items={MIGRATION_FAQ} />
+        <FaqMoreButton />
       </Section>
       <CtaBand title="Konsultasi migrasi, gratis" ctaLabel="Konsultasi Migrasi Gratis" ctaHref="/kontak">
         Ceritakan sistem yang Anda pakai sekarang, kami bantu petakan proses pindahnya.
